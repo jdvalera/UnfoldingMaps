@@ -33,12 +33,17 @@ public class EarthquakeCityMap extends PApplet {
 	private static final long serialVersionUID = 1L;
 
 	// IF YOU ARE WORKING OFFLINE, change the value of this variable to true
-	private static final boolean offline = false;
+	private static final boolean offline = true;
 	
 	// Less than this threshold is a light earthquake
 	public static final float THRESHOLD_MODERATE = 5;
 	// Less than this threshold is a minor earthquake
 	public static final float THRESHOLD_LIGHT = 4;
+	
+	// Radius Sizes
+	public static final float RADIUS_SMALL = 5;
+	public static final float RADIUS_MEDIUM = 10;
+	public static final float RADIUS_LARGE = 15;
 
 	/** This is where to find the local tiles, for working without an Internet connection */
 	public static String mbTilesString = "blankLight-1-3.mbtiles";
@@ -110,6 +115,8 @@ public class EarthquakeCityMap extends PApplet {
 		// Here is an example of how to use Processing's color method to generate 
 	    // an int that represents the color yellow.  
 	    int yellow = color(255, 255, 0);
+	    int red = color(255, 0, 0);
+	    int blue = color(0, 0, 255);
 		
 		// TODO (Step 4): Add code below to style the marker's size and color 
 	    // according to the magnitude of the earthquake.  
@@ -118,6 +125,16 @@ public class EarthquakeCityMap extends PApplet {
 	    // Rather than comparing the magnitude to a number directly, compare 
 	    // the magnitude to these variables (and change their value in the code 
 	    // above if you want to change what you mean by "moderate" and "light")
+	    if(mag >= THRESHOLD_MODERATE) {
+	    	marker.setColor(red);
+	    	marker.setRadius(RADIUS_LARGE);
+	    } else if (mag < THRESHOLD_MODERATE && mag >= THRESHOLD_LIGHT) {
+	    	marker.setColor(yellow);
+	    	marker.setRadius(RADIUS_MEDIUM);
+	    } else {
+	    	marker.setColor(blue);
+	    	marker.setRadius(RADIUS_SMALL);
+	    }
 	    
 	    
 	    // Finally return the marker
