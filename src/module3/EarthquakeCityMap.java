@@ -104,7 +104,7 @@ public class EarthquakeCityMap extends PApplet {
 		// To print all of the features in a PointFeature (so you can see what they are)
 		// uncomment the line below.  Note this will only print if you call createMarker 
 		// from setup
-		System.out.println(feature.getProperties());
+		// System.out.println(feature.getProperties());
 		
 		// Create a new SimplePointMarker at the location given by the PointFeature
 		SimplePointMarker marker = new SimplePointMarker(feature.getLocation());
@@ -153,6 +153,32 @@ public class EarthquakeCityMap extends PApplet {
 	private void addKey() 
 	{	
 		// Remember you can use Processing's graphics methods here
+		fill(255);
+		rect(25, 50, 150, 200);
+		fill(255, 0, 0);
+		ellipse(50, 100, 15, 15);
+		fill(255, 255, 0);
+		ellipse(50, 150, 10, 10);
+		fill(0, 0, 255);
+		ellipse(50, 200, 5, 5);
+		textSize(16);
+		fill(0);
+		textAlign(CENTER, TOP);
+		text("Earthquake Key", 25, 50, 150, 200);
+		
+		textSize(12);
+		fill(0);
+		text("5.0+ Magnitude", 115, 92);
+		
+		textSize(12);
+		fill(0);
+		text("4.0+ Magnitude", 115, 145);
+		
+		textSize(12);
+		fill(0);
+		text("Below 4.0", 95, 192);
+		
+		
 	
 	}
 }
