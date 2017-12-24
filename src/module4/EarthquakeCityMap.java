@@ -213,7 +213,43 @@ public class EarthquakeCityMap extends PApplet {
 		//  * If you know your Marker, m, is a LandQuakeMarker, then it has a "country" 
 		//      property set.  You can get the country with:
 		//        String country = (String)m.getProperty("country");
+		List<String> eqByCntry = new ArrayList<String>();
+		List<Integer> eqByCntryCnt = new ArrayList<Integer>();
 		
+		for (Marker cm : countryMarkers) {
+			String name = (String)cm.getProperty("name");
+			if(!eqByCntry.contains(name)) {
+				eqByCntry.add(name);
+				eqByCntryCnt.add(0);
+			}
+		}
+		
+		eqByCntry.add("Ocean Quakes");
+		eqByCntryCnt.add(0);
+		
+		for (Marker qm : quakeMarkers) {
+			if( qm instanceof EarthquakeMarker) {
+				if(((EarthquakeMarker) qm).isOnLand()) {
+					if (qm instanceof LandQuakeMarker) {
+						String country = ((LandQuakeMarker) qm).getCountry();
+						int countryIndex = eqByCntry.indexOf(country);
+						int cnt = eqByCntryCnt.get(countryIndex);
+						eqByCntryCnt.set(countryIndex, cnt+1);
+					}
+				} else {
+					int countryIndex = eqByCntry.indexOf("Ocean Quakes");
+					int cnt = eqByCntryCnt.get(countryIndex);
+					eqByCntryCnt.set(countryIndex, cnt+1);
+				}
+			}
+		}
+		
+		for(String country : eqByCntry) {
+			int countryIndex = eqByCntry.indexOf(country);
+			int cnt = eqByCntryCnt.get(countryIndex);
+			String line = country + ": " + cnt;
+			System.out.println(line);
+		}
 		
 	}
 	
