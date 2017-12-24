@@ -150,11 +150,21 @@ public class EarthquakeCityMap extends PApplet {
 		//fill(color(255, 255, 255));
 		//ellipse(50, 225, 5, 5);
 		
+		fill(color(255, 255, 0));
+		ellipse(50, 200, 12, 12);
+		fill(color(0, 0, 255));
+		ellipse(50, 225, 12, 12);
+		fill(color(255, 0, 0));
+		ellipse(50, 250, 12, 12);
+		
 		fill(0, 0, 0);
 		text("City Marker", 75, 100);
 		text("Land Quake", 75, 125);
 		text("Ocean Quake", 75, 150);
 		text("Size - Magnitude", 45, 175);
+		text("Shallow", 75, 200);
+		text("Intermediate", 75, 225);
+		text("Deep", 75, 250);
 	}
 
 	
