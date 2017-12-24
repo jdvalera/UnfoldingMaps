@@ -248,7 +248,8 @@ public class EarthquakeCityMap extends PApplet {
 			int countryIndex = eqByCntry.indexOf(country);
 			int cnt = eqByCntryCnt.get(countryIndex);
 			String line = country + ": " + cnt;
-			System.out.println(line);
+			if(cnt>0)
+				System.out.println(line);
 		}
 		
 	}
