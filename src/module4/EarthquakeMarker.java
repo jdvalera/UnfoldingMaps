@@ -68,6 +68,12 @@ public abstract class EarthquakeMarker extends SimplePointMarker
 		drawEarthquake(pg, x, y);
 		
 		// OPTIONAL TODO: draw X over marker if within past day		
+		String s = this.getAge();
+		//System.out.println(s);
+		if(s.equals("Past Day")) {
+			pg.line(x-radius/2, y-radius/2, x+radius/2, y+radius/2);
+			pg.line(x+radius/2, y-radius/2, x-radius/2, y+radius/2);
+		}
 		
 		// reset to previous styling
 		pg.popStyle();
@@ -95,6 +101,10 @@ public abstract class EarthquakeMarker extends SimplePointMarker
 	/*
 	 * getters for earthquake properties
 	 */
+	
+	public String getAge() {
+		return (String) getProperty("age");
+	}
 	
 	public float getMagnitude() {
 		return Float.parseFloat(getProperty("magnitude").toString());
