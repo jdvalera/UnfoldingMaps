@@ -156,6 +156,11 @@ public class EarthquakeCityMap extends PApplet {
 		ellipse(50, 225, 12, 12);
 		fill(color(255, 0, 0));
 		ellipse(50, 250, 12, 12);
+		fill(color(255));
+		ellipse(50, 275, 12, 12);
+		line(50-6, 275-6, 50+6, 275+6);
+		line(50+6, 275-6, 50-6, 275+6);
+
 		
 		fill(0, 0, 0);
 		text("City Marker", 75, 100);
@@ -165,6 +170,7 @@ public class EarthquakeCityMap extends PApplet {
 		text("Shallow", 75, 200);
 		text("Intermediate", 75, 225);
 		text("Deep", 75, 250);
+		text("Past Hour", 75, 275);
 	}
 
 	
